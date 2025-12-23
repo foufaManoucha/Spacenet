@@ -47,25 +47,22 @@ public Ajoutproduitpanier () {
 		 
 		 WebElement boutonEnStock = wait.until(ExpectedConditions.elementToBeClickable(enStock));
 
-		// Vérifier le texte du bouton avant de cliquer
 		String texteBouton = boutonEnStock.getText();
-		if (texteBouton.equalsIgnoreCase(str)) {  //  
+		if (texteBouton.equalsIgnoreCase(str)) {   
 			boutonEnStock.click();
 		} else {
 		    System.out.println("Le bouton n'a pas le texte attendu : " + texteBouton);
 		}
-	     //enStock.click();
+	     
     }
 	
 	public void clickonproduit (String nameproduit) {
 		
 		 WebDriverWait wait = new WebDriverWait(Config.driver, Duration.ofSeconds(15));
 
-		    // Attendre que le produit soit visible et cliquable
 		 WebElement lien = wait.until(ExpectedConditions.refreshed(
 		            ExpectedConditions.elementToBeClickable(produit)
 		    ));
-		    // Vérifier le texte réel contre la variable nameproduit
 		    if (lien.getText().trim().toLowerCase().contains(nameproduit.trim().toLowerCase())) {
 		        lien.click();
 		    } else {
@@ -94,7 +91,3 @@ public Ajoutproduitpanier () {
 	
 	}
 	}
-
-
-
-
